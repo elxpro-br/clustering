@@ -7,7 +7,20 @@ defmodule AppClustering.Application do
 
   @impl true
   def start(_type, _args) do
+    topologies = [
+      elxprotest: [
+        strategy: Cluster.Strategy.Gossip,
+        config: [
+          port: 45892,
+          if_addr: "0.0.0.0",
+          multicast_addr: "255.255.255.255",
+          broadcast_only: true
+        ]
+      ]
+    ]
+
     children = [
+      {Cluster.Supervisor, [topologies, [name: Chat.ClusterSupervisor]]},
       # Start the Ecto repository
       AppClustering.Repo,
       # Start the Telemetry supervisor

@@ -18,6 +18,9 @@ config :app_clustering, AppClusteringWeb.Endpoint,
   pubsub_server: AppClustering.PubSub,
   live_view: [signing_salt: "OP437I+z"]
 
+config :libcluster,
+  debug: true
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
