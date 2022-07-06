@@ -1,0 +1,17 @@
+<%= Node.self %>
+
+<hr>
+
+Counter: <%= @count %>
+
+<button phx-click="inc">INC</button>
+
+<hr>
+Node List:
+
+<ul>
+<li>one </li>
+<%= for node <- Node.list do %>
+<li><%= node %></li>
+<% end %>
+</ul>
