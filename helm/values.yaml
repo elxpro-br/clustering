@@ -1,0 +1,13 @@
+replicaCountApp: 3
+replicaCountPg: 1
+
+image:
+  repository: elxpro/doctor_schedule
+  tag: v2
+
+database:
+  url: postgres://postgres:postgres@postgres-cluster-ip:5432/doctor_schedule
+  poolSize: "2"
+
+secretKeyBase: 6JwpGyrnuipQNo8MapaxL3Q9m48HxVuCao+QFEMGHl+I8Dp8rnkltBnLw7rdr56Z
+pgpassword: postgres
