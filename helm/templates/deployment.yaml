@@ -30,25 +30,4 @@ spec:
               value: "{{ .Values.database.poolSize }}"
             - name: SECRET_KEY_BASE
               value: {{ .Values.secretKeyBase }}
-            - name: GUARDIAN_SECRET
-              value: {{ .Values.guardianSecret }}
-            - name: SMTP_HOST
-              value: {{ .Values.smtp.host }}
-            - name: SMTP_PORT
-              value: "{{ .Values.smtp.port }}"
-            - name: SMTP_USERNAME
-              value: {{ .Values.smtp.userName }}
-            - name: SMTP_PASSWORD
-              value: {{ .Values.smtp.password }}
-            - name: MONGO_URL
-              valueFrom:
-                secretKeyRef:
-                  key: mongo-url
-                  name: {{ .Chart.Name }}
-            - name: MONGO_POOL_SIZE
-              value: "{{ .Values.mongo.poolSize }}"
-            - name: REDIS_URL
-              valueFrom:
-               secretKeyRef:
-                key: redis-url
-                name: {{ .Chart.Name }}
+              
