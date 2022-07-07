@@ -1,0 +1,15 @@
+replicaCountApp: 3
+replicaCountPg: 1
+
+image:
+  repository: guuhworship/cluster_app
+  tag: v5
+
+secretKeyBase: 6JwpGyrnuipQNo8MapaxL3Q9m48HxVuCao+QFEMGHl+I8Dp8rnkltBnLw7rdr56Z
+
+database:
+  url: postgres://postgres:postgres@postgres-cluster-ip:5432/app_clustering
+  poolSize: "10"
+
+pgpassword: postgres
+
