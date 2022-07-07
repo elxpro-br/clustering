@@ -8,13 +8,12 @@ defmodule AppClustering.Application do
   @impl true
   def start(_type, _args) do
     topologies = [
-      elxprotest: [
-        strategy: Cluster.Strategy.Gossip,
+      clusteging_maiqui: [
+        strategy: Cluster.Strategy.Kubernetes.DNS,
         config: [
-          port: 45892,
-          if_addr: "0.0.0.0",
-          multicast_addr: "255.255.255.255",
-          broadcast_only: true
+          service: "maiqui-service-headless",
+          application_name: "app_clustering",
+          polling_interval: 10_000
         ]
       ]
     ]
@@ -22,7 +21,7 @@ defmodule AppClustering.Application do
     children = [
       {Cluster.Supervisor, [topologies, [name: Chat.ClusterSupervisor]]},
       # Start the Ecto repository
-      AppClustering.Repo,
+      # AppClustering.Repo,
       # Start the Telemetry supervisor
       AppClusteringWeb.Telemetry,
       # Start the PubSub system
